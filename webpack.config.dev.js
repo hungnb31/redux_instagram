@@ -3,10 +3,12 @@ var webpack = require('webpack');
 
 module.exports = {
   devtool: 'source-map',
-  entry: [
-    'webpack-hot-middleware/client',
-    './client/reduxstagram'
-  ],
+  entry: {
+    main: [
+      'webpack-hot-middleware/client',
+      './client/reduxstagram'
+    ]
+  },
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'bundle.js',
@@ -14,14 +16,14 @@ module.exports = {
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin()
+    new webpack.NoEmitOnErrorsPlugin()
   ],
   module: {
     loaders: [
     // js
     {
       test: /\.js$/,
-      loaders: ['babel'],
+      loaders: 'babel-loader',
       include: path.join(__dirname, 'client')
     },
     // CSS
@@ -33,6 +35,6 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: ['*', 'js', 'jsx']
+    extensions: ['.js', '.jsx']
   }
 };
