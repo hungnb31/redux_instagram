@@ -3,12 +3,10 @@ var webpack = require('webpack');
 
 module.exports = {
   devtool: 'source-map',
-  entry: {
-    main: [
-      'webpack-hot-middleware/client',
-      './client/reduxstagram'
-    ]
-  },
+  entry: [
+    'webpack-hot-middleware/client',
+    './client/reduxstagram'
+  ],
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'bundle.js',
@@ -16,7 +14,7 @@ module.exports = {
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoEmitOnErrorsPlugin()
+    new webpack. NoEmitOnErrorsPlugin()
   ],
   module: {
     loaders: [
